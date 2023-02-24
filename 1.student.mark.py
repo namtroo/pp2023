@@ -1,46 +1,74 @@
-#input function
+students = []
+courses = []
+marks = {}
+
+#input students information
 def input_students():
-    students = []
-    num_students = input("Enter the number of students: ")
+    num_students = int(input("Enter the number of students: "))
     for i in range(num_students):
         student_name = input("Enter the name of student: ")
         student_id = input("Enter the id of student: ")
         student_dob = input("Enter the day of birth of student: ")
-        students.append(student_name,student_id,student_dob)
+        students.append((student_name,student_id,student_dob))
 
+# input courses information
 def input_courses():
-    courses = []
-    num_courses = input("Enter the number of course: ")
-    for i in range(num_course):
+    num_courses = int(input("Enter the number of course: "))
+    for i in range(num_courses):
         course_name = input("Enter the name of course: ")
         course_id = input("Enter the id of course: ")
-        course.append(course_name, course_id)
+        courses.append((course_name, course_id))
 
-def input_marks(student_id, course_id):
-    marks = {}
-    prompt = f"Enter marks for student {student_id} for course {course_id}: ".format (student_id, course_id)
-    input (prompt)
-    for i in range (students):
-        students.append ((student_name,student_id,student_dob))
-        for i in range (courses):
-            course.append((course_name, course_id))
-    n = int (input ("Enter how many student-course marks do you want to enter? ")) 
-        for i in range (n):     
-            while True:         
-                student_id = input ("Enter student id: ")         
-                course_id = input ("Enter course id: ")         
-                if student_id not in [student [0] for student in students]:             
-                    print ("Bad student id")             
-                    continue          
-                    if courseid not in [course [0] for course in courses]:             
-                        print ("Bad course id")             
-                        continue          
-                        break     
-                        marks = int (input ("Enter marks: "))     
-                        if course_id in mark:         
-                            mark [course_id].append ((student_id, marks))     
-                            else:         
-                                d [coure_id] = [(student_id, marks)]
+# input student mark in course base on id
+def input_marks():
+    for course in courses:
+        if course in courses:
+            for student in students:
+                if student in students:
+                    course_id = input("Enter the course name to enter mark: ")
+                    student_id = input("Enter the student id to enter mark: ")
+                    mark = input("Mark for student in course: ")
+                    marks[student_id,course_id] = mark
+                    return
+                else:
+                    print("incorrect id")
+                    break
+        print("incorrect id")
+        break
+    print("mark: ", marks)
 
-# Display a list of students
 
+# Display a list
+def list_students():
+    for student in students:
+        print(f" name:{student[0]} - id:{student[1]} - dob:{student[2]} ")
+
+def list_courses():
+    print("course")
+    for course in courses:
+        print(f" name:{course[0]} - id:{course[1]} ")
+
+
+#option for system
+while(True):
+    print("0.Exit")
+    print("1. input students")
+    print("2. input courses")
+    print("3. input marks for student")
+    print("4. list student")
+    print("5. list course")
+    selection = int(input("Enter your select: "))
+    if selection == 0:
+        break
+    elif selection == 1:
+        input_students()
+    elif selection == 2:
+        input_courses()
+    elif selection == 3:                     
+        input_marks()
+    elif selection == 4:       
+        list_students()
+    elif selection == 5:
+        list_courses()
+    else:
+        print("invalid input. please try again")
